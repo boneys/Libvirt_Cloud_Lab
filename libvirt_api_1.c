@@ -33,16 +33,17 @@ void main()
         }
         free(active_domains);
 
-        printf("1.Start\n2.Suspend\n3.Resume\n4.stop\n5.exit");
-        scanf("%d",&choice);
-
-        printf("\n Please Insert the Active Domian ID ");
-        scanf("%d",&choice_id);
-
-        vdp=virDomainLookupById(conn,choice_id);
-
         while(1)
         {
+            
+            printf("1.Start\n2.Suspend\n3.Resume\n4.stop\n5.exit ");
+            scanf("%d",&choice);
+
+            printf("\n Please Insert the Active Domian ID ");
+            scanf("%d",&choice_id);
+  
+            vdp=virDomainLookupById(conn,choice_id);
+        
             switch(choice)
             {
                 case 1:val=virDomainCreate(vdp);/* Start */
